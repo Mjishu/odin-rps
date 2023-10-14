@@ -6,28 +6,40 @@ function getComputerChoice(){
 
 
 function playgame(userinput){
-    let ComputerChoice = getComputerChoice();
+    let p_score = 0
+    let c_score = 0
+            let ComputerChoice = getComputerChoice();
 
-    if (userinput === "Rock" && ComputerChoice() === "Scissors"){
-        return "Rock beats Scissors you win";
-    }
-    else if (userinput === "Rock" && ComputerChoice() === "Paper"){
-        return "Paper beats Rock you lose";
-    }
-    else if (userinput === "Paper" && ComputerChoice() === "Rock"){
-        return "Paper beats Rock you Win";
-    }
-    else if (userinput === "Paper" && ComputerChoice() === "Scissors"){
-        return "Scissors beats Paper you lose";
-    }
-    else if (userinput === "Scissors" && ComputerChoice() === "Paper"){
-        return "Scissors beats Paper you win";
-    }
-    else if (userinput === "Scissors" && ComputerChoice() === "Rock"){
-        return "Rock beats Scissors you Lose";
-    }
-    else if (userinput == ComputerChoice()){
-        return "Its a Tie!"
-    }
-    else{return "Not valid"}
-}
+            if (userinput === "Rock" && ComputerChoice === "Scissors"){
+            output.innerHTML =  "Rock beats Scissors you win"; p_score ++;
+            }
+            else if (userinput === "Rock" && ComputerChoice === "Paper"){
+            output.innerHTML =  "Paper beats Rock you lose"; c_score ++;
+            }
+            else if (userinput === "Paper" && ComputerChoice === "Rock"){
+            output.innerHTML =  "Paper beats Rock you Win";p_score ++;
+            }
+            else if (userinput === "Paper" && ComputerChoice === "Scissors"){
+            output.innerHTML =  "Scissors beats Paper you lose"; c_score ++; 
+            }
+            else if (userinput === "Scissors" && ComputerChoice === "Paper"){
+            output.innerHTML =  "Scissors beats Paper you win"; p_score ++; 
+            }
+            else if (userinput === "Scissors" && ComputerChoice === "Rock"){
+                output.innerHTML =  "Rock beats Scissors you Lose"; c_score ++;
+            }
+            else if (userinput == ComputerChoice){
+                output.innerHTML =  "Its a Tie!";
+            }
+            else{output.innerHTML = "Not valid"}
+            
+            pscore.innerHTML = p_score;
+            cscore.innerHTML = c_score;
+
+            if (p_score === 5){
+                pnotif.innerHTML = "You won 5 you won"
+            }
+            else if (c_score === 5){
+                cnotif.innerHTML = "You lost 5 you lose"
+            }
+        }

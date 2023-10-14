@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
     <button onclick="playgame('Rock')">Rock</button>
     <button onclick="playgame('Paper')">Paper</button>
     <button onclick="playgame('Scissors')">Scissors</button>
     
+    <p>Computer score: <span id="cscore"></span></p> <p id="cnotif"></p>
+    <p>Player score: <span id="pscore"></span></p> <p id="pnotif"></p>
+
+    <p id="output"></p>
 
     <script src="rps.js"></script>
 </body>
