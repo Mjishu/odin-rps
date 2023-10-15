@@ -4,42 +4,39 @@ function getComputerChoice(){
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-
+let p_score = 0
+let c_score = 0
 function playgame(userinput){
-    let p_score = 0
-    let c_score = 0
-            let ComputerChoice = getComputerChoice();
-
-            if (userinput === "Rock" && ComputerChoice === "Scissors"){
-            output.innerHTML =  "Rock beats Scissors you win"; p_score ++;
-            }
-            else if (userinput === "Rock" && ComputerChoice === "Paper"){
-            output.innerHTML =  "Paper beats Rock you lose"; c_score ++;
-            }
-            else if (userinput === "Paper" && ComputerChoice === "Rock"){
-            output.innerHTML =  "Paper beats Rock you Win";p_score ++;
-            }
-            else if (userinput === "Paper" && ComputerChoice === "Scissors"){
-            output.innerHTML =  "Scissors beats Paper you lose"; c_score ++; 
-            }
-            else if (userinput === "Scissors" && ComputerChoice === "Paper"){
-            output.innerHTML =  "Scissors beats Paper you win"; p_score ++; 
-            }
-            else if (userinput === "Scissors" && ComputerChoice === "Rock"){
-                output.innerHTML =  "Rock beats Scissors you Lose"; c_score ++;
-            }
-            else if (userinput == ComputerChoice){
-                output.innerHTML =  "Its a Tie!";
-            }
-            else{output.innerHTML = "Not valid"}
+    let result = ""
+        let ComputerChoice = getComputerChoice(); 
+// fix counter issues
+        if ((userinput === "Rock" && ComputerChoice === "Scissors") ||
+        (userinput == "Paper" && ComputerChoice === "Rock") || 
+        (userinput == "Scissors" && ComputerChoice === "Paper")){
+            p_score += 1
+            result = (userinput + " Beats " + ComputerChoice + "You win! "  + "<br> Player score: " + p_score + "<br> Computer Score: " + c_score)
+               
+            if (p_score ==5){
+                result+= '<br> You won the game!'
+                c_score = 0;
+                p_score = 0;}
             
-            pscore.innerHTML = p_score;
-            cscore.innerHTML = c_score;
+        }
+        else if (userinput == ComputerChoice){
+            result = ("Its a tie! " + "<br> Player score: " + p_score + "<br> Computer Score: " + c_score)
+        }
 
-            if (p_score === 5){
-                pnotif.innerHTML = "You won 5 you won"
+        else {
+            result = ( ComputerChoice + " Beats " + userinput + "You Lose! "  + "<br> Player score: " + p_score + "<br> Computer Score: " + c_score)
+            c_score += 1
+
+            if (c_score ==5){
+                result = ("Computer wins, You Lose")
+                c_score = 0;
+                p_score = 0;
             }
-            else if (c_score === 5){
-                cnotif.innerHTML = "You lost 5 you lose"
-            }
+        }
+         document.getElementById('result').innerHTML = result
+         return   
+        
         }

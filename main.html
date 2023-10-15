@@ -7,14 +7,16 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <button onclick="playgame('Rock')">Rock</button>
-    <button onclick="playgame('Paper')">Paper</button>
-    <button onclick="playgame('Scissors')">Scissors</button>
-    
-    <p>Computer score: <span id="cscore"></span></p> <p id="cnotif"></p>
-    <p>Player score: <span id="pscore"></span></p> <p id="pnotif"></p>
+    <h1 class="rps">Rock Paper Scissors</h1>
+    <div class="info">
+        <button onclick="playgame('Rock')" class="btnR">Rock</button>
+        <button onclick="playgame('Paper')" class="btnP">Paper</button>
+        <button onclick="playgame('Scissors' )" class="btnS">Scissors</button>
+        
+        <div id="result"></div>
 
-    <p id="output"></p>
+        <p id="output"></p>
+    </div>
 
     <script src="rps.js"></script>
 </body>
